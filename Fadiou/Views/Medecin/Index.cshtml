@@ -1,0 +1,80 @@
+﻿@model PagedList.IPagedList<Fadiou.Models.MedecinViewModel>
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+
+    <a href="@Url.Action("Create", "Medecin")" title="Nouveau">
+        <i class="fa fa-save"></i> Nouveau
+    </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().nomPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().prenomPers)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().sexePers)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().emailPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().telPers)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.First().specialteMed)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomPers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenomPers)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.sexePers)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.emailPers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telPers)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.specialteMed)
+            </td>
+            <td>
+                <a href="@Url.Action("Edit", "Medecin", new { id=item.idPers })" title="Modifier">
+                    <i class="fa fa-edit"></i>
+                </a>|
+                <a class= href="@Url.Action("Delete", "Medecin", new { id=item.idPers })" title="Modifier">
+                    <i class="fa fa-remove"></i>
+                </a>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.idPers }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.idPers }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.idPers }) *@
+            </td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))

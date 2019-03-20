@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Fadiou.Models.PatientViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nomPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.prenomPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.adressePers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.dateNaissancePers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sexePers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cniPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.situationMatPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.telPers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.poidsPatient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.taillePatient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.groupeSanguinPatient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ProfessionPatient)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomPers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prenomPers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.adressePers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.dateNaissancePers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sexePers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cniPers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.situationMatPers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailPers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.telPers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.poidsPatient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.taillePatient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.groupeSanguinPatient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ProfessionPatient)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idPers }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idPers }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idPers })
+        </td>
+    </tr>
+}
+
+</table>
